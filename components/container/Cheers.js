@@ -5,6 +5,12 @@ import { useDonate } from "../../contexts/DonateContext";
 
 function Cheers({ name, count, setCount }) {
   const { donate } = useDonate();
+  const COFFEE_PRICE = 20;
+  const COFFEE_BASE = 0.0001
+
+  const getCostToWei = (price, count)  => {
+    return (price * count) * COFFEE_BASE + 1e14.toString()
+  }
 
   const calCount = (action) => {
     if (action == "plus" && count < 100) setCount(count + 1);
@@ -17,7 +23,7 @@ function Cheers({ name, count, setCount }) {
   `;
 
   const handleDonate = () => {
-    donate(name, 1e15 * count);
+    donate(name, getCostToWei(COFFEE_PRICE, count));
   };
 
   return (
@@ -31,7 +37,7 @@ function Cheers({ name, count, setCount }) {
         </div>
         <div className="cheers-coffeCount2">
           <div className="cheers-coffeCount2-text">
-            {count}커피 = {(0.01 * count).toFixed(2)}ether
+            {count}커피 = {(COFFEE_BASE * COFFEE_PRICE * count).toFixed(2)}ether
           </div>
         </div>
         <div className="cheers-countButton">
