@@ -23,7 +23,7 @@ function WalletProvider({ children }) {
       // supportedChainIds: 접속할 서버들
       // https://besu.hyperledger.org/en/stable/Concepts/NetworkID-And-ChainID/
       // 1: Mainnet (Production), 3: Ropsten (Test), 4: Rinkeby (Test), 5: Georli (Test), 42: Kovan (Test)
-      const newConnector = new InjectedConnector({ supportedChainIds: [1, 3] });
+      const newConnector = new InjectedConnector({ supportedChainIds: [1] });
       setConnector(newConnector);
       
       if (newConnector !== null) {
