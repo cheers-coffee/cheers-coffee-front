@@ -40,7 +40,7 @@ function Cheers({ name, count, setCount }) {
           </div>
           <div className="cheers-coffeCount2">
             <div className="cheers-coffeCount2-text">
-              {count}커피 = {(0.01 * count).toFixed(2)}ether
+              {count}커피 = {(COFFEE_BASE * COFFEE_PRICE * count).toFixed(4)}ether
             </div>
           </div>
           <div className="cheers-countButton">
