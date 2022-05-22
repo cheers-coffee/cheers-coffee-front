@@ -55,6 +55,11 @@ const UserPage = () => {
     return isRegistered ? "user" : "notfound";
   }, [userChecked, isRegistered]);
 
+  const handleGoldfish = () => {
+    setUserChecked(false);
+    router.push("/user/goldfish");
+  }
+
   return (
     <>
       {state === "wait" && <Waiting />}
@@ -75,7 +80,7 @@ const UserPage = () => {
           <Button
             text="사이트 개발자에게 커피 주기"
             className="join-button radius"
-            onClick={() => router.push("/user/goldfish")}
+            onClick={handleGoldfish}
           />
         </div>
       )}
