@@ -228,6 +228,15 @@ a {
   font-size: 1.2em;
   font-weight: 500;
 }
+.credit-link {
+  margin-top: 10px;
+}
+.credit-link-item {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .credit-contact {
   display: flex;
   flex-direction: row;
