@@ -9,7 +9,7 @@ function Cheers({ name, count, setCount }) {
   const COFFEE_BASE = 0.0001
 
   const getCostToWei = (price, count)  => {
-    return (price * count) + 1e14.toString()
+    return (price * count) + 1e13.toString()
   }
 
   const calCount = (action) => {
