@@ -217,17 +217,26 @@ a {
   padding: 80px;
 }
 .large-icon {
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
 }
 .credit-name {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 600;
   padding: 20px;
 }
 .credit-text {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
+}
+.credit-link {
+  margin-top: 10px;
+}
+.credit-link-item {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .credit-contact {
   display: flex;
