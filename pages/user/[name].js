@@ -17,12 +17,16 @@ const UserPage = () => {
   const [userChecked, setUserChecked] = useState(false);
   const isLoading = useRef(false);
 
-  const fetcher = async (...args) => {
-    let isRegistered = false;
+  const { data: isRegistered } = useSWR(name, fetcher, {
+    refreshInterval: 300,
+  });
+
+  async function fetcher(...args) {
+    let isExist = null;
     const [name] = args;
 
     if (userChecked) {
-      return userChecked;
+      return isRegistered;
     }
 
     if (args === null || isLoading.current) {
@@ -31,23 +35,17 @@ const UserPage = () => {
 
     try {
       isLoading.current = true;
-      isRegistered = await getRegistered(name);
+      isExist = await getRegistered(name);
 
       setUserChecked(true);
-      isLoading.current = false;
-
-      return isRegistered;
     } catch (err) {
-      isLoading.current = false;
       console.error(err);
+    } finally {
+      isLoading.current = false;
     }
 
-    return isRegistered;
+    return isExist;
   };
-
-  const { data: isRegistered } = useSWR(name, fetcher, {
-    refreshInterval: 300,
-  });
 
   const state = useMemo(() => {
     if (!userChecked) {
